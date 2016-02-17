@@ -7,7 +7,7 @@
 # you're doing.
 Vagrant.configure(2) do |config|
   config.vm.define "sensu" do |sensu|
-    sensu.vm.box = "ubuntu/vivid64"
+    sensu.vm.box = "ubuntu/trusty"
     sensu.vm.hostname = "sensu"
 
 #    sensu.vm.network :private_network, ip: "192.168.202.201"
