@@ -205,8 +205,8 @@ sensu_server_debian_packages:
   - erlang-nox
   - mailutils
   - make
-  - ruby
-  - ruby-dev
+  - ruby2.0
+  - ruby2.0-dev
   - sensu
   - uchiwa
 sensu_server_services:

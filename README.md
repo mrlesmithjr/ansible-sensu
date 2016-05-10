@@ -43,7 +43,7 @@ sensu_check_plugins:
   - check-procs.rb
   - check-redis-ping.rb
   - es-cluster-metrics.rb
-sensu_client: false  #defines if host is a sensu client
+sensu_client: true  #defines if host is a sensu client/server
 sensu_client_debian_packages:
   - erlang-nox
   - build-essential
@@ -230,8 +230,8 @@ sensu_server_debian_packages:
   - erlang-nox
   - mailutils
   - make
-  - ruby
-  - ruby-dev
+  - ruby2.0
+  - ruby2.0-dev
   - sensu
   - uchiwa
 sensu_server_services:
