@@ -22,7 +22,7 @@ vagrant up
 Role Variables
 --------------
 
-````
+```yaml
 ---
 # defaults file for ansible-sensu
 email_notifications: 'notifications@{{ pri_domain_name }}'
@@ -242,7 +242,7 @@ sensu_server_services:
 smtp_domain_name: '{{ pri_domain_name }}'
 smtp_server: 'smtp.{{ pri_domain_name }}'
 smtp_server_port: 25
-````
+```
 
 Dependencies
 ------------
@@ -255,7 +255,7 @@ Example Playbook
 ----------------
 
 #### GitHub
-````
+```yaml
 ---
 - hosts: all
   become: true
@@ -268,9 +268,12 @@ Example Playbook
     - role: ansible-redis
     - role: ansible-sensu
   tasks:
-````
+```
+
+
 #### Galaxy
-````
+
+```yaml
 ---
 - hosts: all
   become: true
@@ -283,7 +286,7 @@ Example Playbook
     - role: mrlesmithjr.redis
     - role: mrlesmithjr.sensu
   tasks:
-````
+```
 
 License
 -------
