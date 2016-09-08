@@ -24,8 +24,8 @@ sensu_client_debian_packages:
   - build-essential
   - make
   - sensu
-  - ruby2.0
-  - ruby2.0-dev
+  - ruby2.3
+  - ruby2.3-dev
 sensu_client_address: "{{ ansible_fqdn }}"
 sensu_client_services:
   - sensu-client
@@ -40,8 +40,8 @@ sensu_config_handlers_def:  #sensu definitions - added to /etc/sensu/conf.d
 sensu_config_handlers_mod:  #sensu ruby handlers - added to /etc/sensu/handlers
   - logstash
   - mailer
-sensu_debian_repo: 'deb http://repos.sensuapp.org/apt sensu main'
-sensu_debian_repo_key: 'http://repos.sensuapp.org/apt/pubkey.gpg'
+sensu_debian_repo: 'deb https://sensu.global.ssl.fastly.net/apt sensu main'
+sensu_debian_repo_key: 'https://sensu.global.ssl.fastly.net/apt/pubkey.gpg'
 sensu_default_handler: default  #leave set to default...this is a built-in plugin that does nothing
 sensu_default_handlers:
   - logstash

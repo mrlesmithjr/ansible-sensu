@@ -11,7 +11,6 @@
     - restart sensu-server
   with_items: sensu_monitor_cpu
   when: >
-        sensu_server and
         sensu_enable_cpu_monitors and
         item.enabled
 
@@ -24,7 +23,6 @@
     - restart sensu-server
   with_items: sensu_monitor_cpu
   when: >
-        sensu_server and
         sensu_enable_cpu_monitors and
         not item.enabled
 
@@ -39,7 +37,6 @@
     - restart sensu-api
     - restart sensu-server
   when: >
-        sensu_server and
         sensu_enable_disk_monitors
 
 - name: config_checks | enabling elasticsearch checks
@@ -54,7 +51,6 @@
     - restart sensu-server
   with_items: sensu_monitor_es
   when: >
-        sensu_server and
         sensu_enable_es_monitors and
         item.enabled
 
@@ -67,7 +63,6 @@
     - restart sensu-server
   with_items: sensu_monitor_es
   when: >
-        sensu_server and
         sensu_enable_es_monitors and
         not item.enabled
 
@@ -82,7 +77,6 @@
     - restart sensu-api
     - restart sensu-server
   when: >
-        sensu_server and
         sensu_enable_haproxy_monitors
 
 - name: config_checks | configuring process checks
@@ -97,7 +91,6 @@
     - restart sensu-server
   with_items: sensu_monitor_processes
   when: >
-        sensu_server and
         sensu_enable_process_monitors and
         item.enabled
 
@@ -110,7 +103,6 @@
     - restart sensu-server
   with_items: sensu_monitor_processes
   when: >
-        sensu_server and
         sensu_enable_process_monitors and
         not item.enabled
 
@@ -126,7 +118,6 @@
     - restart sensu-server
   with_items: sensu_monitor_redis
   when: >
-        sensu_server and
         sensu_enable_redis_monitors
 
 - name: config_checks | configuring plugins

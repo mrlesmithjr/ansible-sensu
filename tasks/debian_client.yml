@@ -12,6 +12,9 @@
 - name: debian_client | adding brightbox ruby repository
   apt_repository:
     repo: 'ppa:brightbox/ruby-ng'
+  when: >
+        (ansible_distribution == "Ubuntu" and
+        ansible_distribution_version <= '14.04')
 
 - name: debian_client | installing pre-reqs and sensu
   apt:
