@@ -7,4 +7,6 @@
     sensu_host: '127.0.0.1'
     sensu_server: true
   roles:
+    - ansible-rabbitmq
+    - ansible-redis
     - ansible-sensu
