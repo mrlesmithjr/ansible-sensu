@@ -3,5 +3,5 @@
   gem:
     name: "{{ item }}"
     user_install: no
-    state: latest
-  with_items: sensu_plugins
+    state: "present"
+  with_items: '{{ sensu_plugins }}'
