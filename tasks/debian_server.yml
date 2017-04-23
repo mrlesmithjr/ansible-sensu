@@ -2,6 +2,7 @@
 - name: debian_server | adding brightbox ruby repository
   apt_repository:
     repo: 'ppa:brightbox/ruby-ng'
+  become: true
   when: >
         (ansible_distribution == "Ubuntu" and
         ansible_distribution_version <= '14.04')
@@ -10,22 +11,26 @@
   apt_key:
     url: "{{ sensu_debian_repo_key }}"
     state: present
+  become: true
 
 - name: debian_server | adding sensu repo
   apt_repository:
     repo: "{{ sensu_debian_repo }}"
     state: present
+  become: true
 
 - name: debian_server | installing pre-reqs and sensu
   apt:
     name: "{{ item }}"
     state: present
+  become: true
   with_items: '{{ sensu_server_debian_packages }}'
 
 - name: debian_server | creating sensu rabbitmq vhost
   rabbitmq_vhost:
     name: "{{ sensu_rabbitmq_info.vhost }}"
     state: present
+  become: true
 
 - name: debian_server | creating sensu rabbitmq user
   rabbitmq_user:
@@ -36,9 +41,11 @@
     read_priv: ".*"
     write_priv: ".*"
     state: present
+  become: true
 
 - name: debian_server | ensuring services are enabled and start on boot
   service:
     name: "{{ item }}"
     enabled: yes
+  become: true
   with_items: '{{ sensu_server_services }}'

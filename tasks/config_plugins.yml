@@ -4,4 +4,5 @@
     name: "{{ item }}"
     user_install: no
     state: "present"
+  become: true
   with_items: '{{ sensu_plugins }}'
