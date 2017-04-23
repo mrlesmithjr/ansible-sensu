@@ -20,13 +20,13 @@
   apt:
     name: "{{ item }}"
     state: present
-  with_items: sensu_client_debian_packages
+  with_items: '{{ sensu_client_debian_packages }}'
 
 - name: debian_client | ensuring services are enabled and start on boot
   service:
     name: "{{ item }}"
     enabled: yes
-  with_items: sensu_client_services
+  with_items: '{{ sensu_client_services }}'
 
 - name: debian_client | Disabling Sensu Server Service
   service:

@@ -5,7 +5,7 @@
   when: >
         (ansible_distribution == "Ubuntu" and
         ansible_distribution_version <= '14.04')
-        
+
 - name: debian_server | adding sensu repo key
   apt_key:
     url: "{{ sensu_debian_repo_key }}"
@@ -20,7 +20,7 @@
   apt:
     name: "{{ item }}"
     state: present
-  with_items: sensu_server_debian_packages
+  with_items: '{{ sensu_server_debian_packages }}'
 
 - name: debian_server | creating sensu rabbitmq vhost
   rabbitmq_vhost:
@@ -41,4 +41,4 @@
   service:
     name: "{{ item }}"
     enabled: yes
-  with_items: sensu_server_services
+  with_items: '{{ sensu_server_services }}'
