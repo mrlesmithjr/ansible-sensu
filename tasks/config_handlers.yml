@@ -9,6 +9,7 @@
   notify:
     - restart sensu-api
     - restart sensu-server
+  become: true
   with_items: '{{ sensu_config_handlers_def }}'
 
 - name: config_handlers | configuring handlers modules
@@ -21,4 +22,5 @@
   notify:
     - restart sensu-api
     - restart sensu-server
+  become: true
   with_items: '{{ sensu_config_handlers_mod }}'
